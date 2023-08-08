@@ -12,42 +12,16 @@
 
 # With input 'aabb':
 
-'''
-a1 -> a2 b1 b2:
- a2 b1 b2 a1
- a2 b1 a1 b2
- a2 a1 b1 b2
- a1 a2 b1 b2
- 
-a2 -> a1 b1 b2:
- a1 b1 b2 a2
- a1 b1 a2 b2
- a1 a2 b1 b2
- a2 a1 b1 b2
-
-b1 -> a1 a2 b2:
- a1 a2 b2 b1
- a1 a2 b1 b2
- a1 b1 a2 b2
- b1 a1 a2 b2
-
-b2 -> a1 a2 b1:
- a1 a2 b1 b2
- a1 a2 b2 b1
- a1 b2 a2 b1
- b2 a1 a2 b1
- 
-SUM:
- 
-'''
 
 # Your function should return ['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa']
 
+import functools
 import itertools
+import time
 
 
 def permutations2(string):
-    return list("".join(p) for p in set(itertools.permutations(string)))
+    return sorted(list("".join(p) for p in set(itertools.permutations(string))))
 
 
 def permutations(s: str) -> list[str]:
@@ -62,11 +36,40 @@ def permutations(s: str) -> list[str]:
 
     permutations = []
     generate_permutations("", s)
-    return list(set(permutations))
+    return sorted(list(set(permutations)))
 
 
-# Пример использования:
-input_string = "abc"
+input_string = "ABAB"
 all_permutations = permutations(input_string)
-for permutation in all_permutations:
-    print(permutation)
+b = sorted(all_permutations)
+print(b)
+
+
+@functools.lru_cache(maxsize=None)
+def permutations3(string):
+    string = sorted(string)
+    permutations_list = []
+    permutations_list.append(''.join(string))
+
+    while True:
+        next_perm = next_permutation(string)
+        if next_perm == string:
+            break
+        permutations_list.append(''.join(next_perm))
+
+    return permutations_list
+
+
+def list_positin(word):
+    sorted_words = permutations(word)
+
+    print(word)
+    try:
+        return sorted_words.index(word) + 1
+    except ValueError:
+        return 1
+
+
+input_string = "ABAB"
+result = list_positin(input_string)
+print(result)
