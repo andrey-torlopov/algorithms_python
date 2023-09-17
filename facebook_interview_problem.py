@@ -1,7 +1,6 @@
 # Есть массив
 # [4, 2, 2, 1, 2, -3, 5, -8] найти сколькими способами можно получить 5
 # например [2 + 2 + 1], [1 + 2 + -3 + 5] итп
-import time
 
 
 def count_sum(array, sum):
@@ -21,9 +20,6 @@ def count_sum(array, sum):
             d[for_sum] = d.get(for_sum, 0) + 1
         else:
             d[for_sum] = d.get(for_sum, 0) + 1
-
-        print(f"item = {item} for_sum = {for_sum} result = {result} d = {d}")
-
     return result
 
 
