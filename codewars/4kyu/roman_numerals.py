@@ -52,3 +52,7 @@ class RomanNumerals:
                 i += 1
 
         return result
+
+
+if __name__ == '__main__':
+    print(RomanNumerals.from_roman('MCXVI'))

@@ -61,3 +61,25 @@ arr = [("08:00", "10:30"),
 max_guests, start_time, end_time = max_simultaneous_guests_info(arr)
 print(f"Максимальное количество гостей: {max_guests}")
 print(f"Они находились в отеле с {start_time} до {end_time}")
+
+
+def solution(calls):
+    times = []
+    for call in calls:
+        start_time, end_time = call
+        times.append((start_time, 1))
+        times.append((end_time, -1))
+    times = sorted([tuple(map(int, t[0].split(":"))) + (t[1], ) for t in times])
+    count = 0
+    max_count = 0
+
+    for time in times:
+        if time[2] == 1:
+            count += 1
+        else:
+            count -= 1
+        max_count = max(max_count, count)
+    return max_count
+
+
+print(solution(arr))

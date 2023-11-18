@@ -1,0 +1,53 @@
+.dev_doc.md
+
+# Postgres
+db_data/
+stash/
+
+# Byte-compiled / optimized Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Игнорировать виртуальное окружение, если используется
+venv/
+env/
+env_bak/
+
+# Игнорировать файлы сборки и управления зависимостями
+/.venv/
+/.idea/
+/.vscode/
+*.egg-info/
+dist/
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.DS_Store
+# Игнорировать файлы окружения
+.env_no_encrypt
+
+# Игнорировать файлы и папки локальных настроек IDE
+/.vscode/
+/.idea/
+
+# Игнорировать файлы временных настроек
+*.bak
+*.swp
+*~
+.DS_Store
+simple_neuro_network/.venv/*
+ConsoleDraw/.venv/*
+.dev_docs.md
